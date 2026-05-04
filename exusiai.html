@@ -3,184 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新约能天使 · Exusiai the Liberator</title>
+<title>明日方舟 - 能天使</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --new-primary: #8b1a2b;
-    --new-glow: #c93a4f;
-    --new-gold: #c8a24e;
-    --new-gold-dim: rgba(200,162,78,0.6);
-    --new-bg: #0a0808;
-    --new-card: #120e0e;
-    --new-card-hover: #1a1414;
-    --new-border: #2a1a1a;
-    --new-text: #e8ddd0;
-    --new-text-dim: #8a7a6a;
-
-    --ori-primary: #e84057;
-    --ori-glow: #ff6b7a;
-    --ori-accent: #ffd166;
-    --ori-bg: #0d1117;
-    --ori-card: #161b22;
-    --ori-card-hover: #1c2333;
-    --ori-border: #30363d;
-    --ori-text: #e6edf3;
-    --ori-text-dim: #8b949e;
-
-    --primary: var(--new-primary);
-    --glow: var(--new-glow);
-    --gold: var(--new-gold);
-    --bg: var(--new-bg);
-    --card: var(--new-card);
-    --card-hover: var(--new-card-hover);
-    --border: var(--new-border);
-    --text: var(--new-text);
-    --text-dim: var(--new-text-dim);
-
-    --transition-speed: 0.6s;
+    --primary: #e84057;
+    --primary-dark: #b82e42;
+    --accent: #ffd166;
+    --bg-dark: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --border: #30363d;
+    --glow: rgba(232, 64, 87, 0.3);
   }
 
   body {
     font-family: 'Noto Sans SC', sans-serif;
-    background: var(--bg);
+    background: var(--bg-dark);
     color: var(--text);
     overflow-x: hidden;
     line-height: 1.6;
-    transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
   }
 
-  body.original-mode {
-    --primary: var(--ori-primary);
-    --glow: var(--ori-glow);
-    --gold: var(--ori-accent);
-    --bg: var(--ori-bg);
-    --card: var(--ori-card);
-    --card-hover: var(--ori-card-hover);
-    --border: var(--ori-border);
-    --text: var(--ori-text);
-    --text-dim: var(--ori-text-dim);
-  }
-
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-dark); }
   ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
 
-  /* ===== Particles ===== */
   #particles {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 0;
   }
 
-  /* ===== Navigation ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(10,8,8,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(139,26,43,0.2);
-    transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
-  }
-  body.original-mode nav {
-    background: rgba(13,17,23,0.85);
-    border-bottom-color: rgba(232,64,87,0.2);
-  }
-
-  nav .logo {
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    color: var(--gold);
-    font-weight: 500;
-    transition: color var(--transition-speed) ease;
-  }
-
-  nav .nav-links {
-    display: flex; gap: 1.5rem; list-style: none;
-  }
-  nav .nav-links a {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-  }
-  nav .nav-links a:hover { color: var(--text); }
-
-  /* ===== Form Toggle ===== */
-  .form-toggle-wrap {
-    position: fixed;
-    top: 50%;
-    right: 2rem;
-    transform: translateY(-50%);
-    z-index: 90;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .form-toggle-label {
-    writing-mode: vertical-rl;
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    color: var(--text-dim);
-    transition: color var(--transition-speed) ease;
-  }
-
-  .form-toggle {
-    width: 44px;
-    height: 80px;
-    border-radius: 22px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all var(--transition-speed) ease;
-  }
-  .form-toggle:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(139,26,43,0.3);
-  }
-  body.original-mode .form-toggle:hover {
-    box-shadow: 0 0 20px rgba(232,64,87,0.3);
-  }
-
-  .form-toggle-knob {
-    position: absolute;
-    left: 4px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--new-primary), var(--new-glow));
-    transition: all var(--transition-speed) cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    top: 4px;
-  }
-  body.original-mode .form-toggle-knob {
-    top: 38px;
-    background: linear-gradient(135deg, var(--ori-primary), var(--ori-glow));
-  }
-
-  .form-toggle-icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-  }
-  .form-toggle-icon.top { top: 12px; }
-  .form-toggle-icon.bottom { bottom: 12px; }
-
-  /* ===== Hero ===== */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -190,926 +48,304 @@
     overflow: hidden;
   }
 
-  .hero-bg-new {
+  .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse at 30% 50%, rgba(139,26,43,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 30%, rgba(200,162,78,0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 80%, rgba(139,26,43,0.08) 0%, transparent 40%),
-      var(--new-bg);
-    transition: opacity var(--transition-speed) ease;
+      radial-gradient(ellipse at 30% 50%, rgba(232,64,87,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(255,209,102,0.08) 0%, transparent 50%),
+      var(--bg-dark);
   }
-  .hero-bg-ori {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 50%, rgba(232,64,87,0.2) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 30%, rgba(255,209,102,0.1) 0%, transparent 50%),
-      var(--ori-bg);
-    opacity: 0;
-    transition: opacity var(--transition-speed) ease;
-  }
-  body.original-mode .hero-bg-new { opacity: 0; }
-  body.original-mode .hero-bg-ori { opacity: 1; }
 
   .hero-content {
     position: relative; z-index: 1;
     text-align: center;
     padding: 2rem;
-    max-width: 800px;
   }
 
   .hero-badge {
     display: inline-block;
-    padding: 6px 24px;
-    border: 1px solid var(--gold);
+    padding: 6px 20px;
+    border: 1px solid var(--primary);
     border-radius: 20px;
-    font-size: 0.75rem;
-    color: var(--gold);
-    letter-spacing: 4px;
-    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    color: var(--primary);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
     animation: fadeInDown 1s ease;
-    transition: color var(--transition-speed) ease, border-color var(--transition-speed) ease;
   }
-
-  .hero-art-frame {
-    width: 280px;
-    height: 380px;
-    margin: 0 auto 2.5rem;
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: border-color var(--transition-speed) ease;
-  }
-
-  .hero-art-new, .hero-art-ori {
-    position: absolute; inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity var(--transition-speed) ease;
-  }
-  .hero-art-ori { opacity: 0; }
-  body.original-mode .hero-art-new { opacity: 0; }
-  body.original-mode .hero-art-ori { opacity: 1; }
-
-  .hero-art-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-art-new .hero-art-placeholder {
-    background:
-      linear-gradient(135deg, #1a0a0e 0%, #2a1018 40%, #1a0a0e 100%);
-  }
-  .hero-art-ori .hero-art-placeholder {
-    background:
-      linear-gradient(135deg, #1a0a14 0%, #2a0e1e 40%, #1a0a14 100%);
-  }
-  .hero-art-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-  .hero-art-placeholder .art-icon {
-    font-size: 5rem;
-    opacity: 0.2;
-    margin-bottom: 1rem;
-  }
-  .hero-art-placeholder .art-label {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    letter-spacing: 2px;
-  }
-
-  .hero-art-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    pointer-events: none;
-    box-shadow: inset 0 0 60px rgba(0,0,0,0.5);
-  }
-
-  .hero-art-glow {
-    position: absolute;
-    inset: -2px;
-    border-radius: 18px;
-    background: conic-gradient(from 0deg, transparent, var(--primary), transparent, var(--gold), transparent);
-    opacity: 0;
-    animation: glowRotate 4s linear infinite;
-    transition: opacity var(--transition-speed) ease;
-  }
-  .hero-art-frame:hover .hero-art-glow { opacity: 0.4; }
-
-  @keyframes glowRotate {
-    to { transform: rotate(360deg); }
-  }
-
-  .hero-title-new, .hero-title-ori {
-    transition: opacity var(--transition-speed) ease;
-  }
-  .hero-title-ori { display: none; }
-  body.original-mode .hero-title-new { display: none; }
-  body.original-mode .hero-title-ori { display: block; }
 
   .hero-name {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
-    background: linear-gradient(135deg, var(--new-primary), var(--new-gold));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 1s ease 0.2s both;
-    line-height: 1.2;
-  }
-  body.original-mode .hero-name {
-    background: linear-gradient(135deg, var(--ori-primary), var(--ori-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    text-shadow: 0 0 80px var(--glow);
   }
 
   .hero-sub {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 300;
     color: var(--text-dim);
     margin-top: 0.5rem;
-    letter-spacing: 3px;
-    animation: fadeInUp 1s ease 0.35s both;
-    transition: color var(--transition-speed) ease;
-  }
-
-  .hero-class {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 4px 16px;
-    border: 1px solid var(--primary);
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: var(--primary);
-    letter-spacing: 2px;
-    animation: fadeInUp 1s ease 0.45s both;
-    transition: all var(--transition-speed) ease;
+    animation: fadeInUp 1s ease 0.4s both;
   }
 
   .hero-quote {
-    max-width: 480px;
-    margin: 2.5rem auto 0;
+    max-width: 500px;
+    margin: 2rem auto 0;
     padding: 1.2rem 2rem;
-    border-left: 3px solid var(--gold);
+    border-left: 3px solid var(--accent);
     font-style: italic;
-    color: var(--gold);
-    font-size: 1rem;
-    line-height: 1.8;
-    animation: fadeInUp 1s ease 0.55s both;
-    background: rgba(200,162,78,0.04);
-    border-radius: 0 8px 8px 0;
-    transition: all var(--transition-speed) ease;
-  }
-  body.original-mode .hero-quote {
-    border-left-color: var(--ori-accent);
-    color: var(--ori-accent);
+    color: var(--accent);
+    font-size: 1.05rem;
+    animation: fadeInUp 1s ease 0.6s both;
     background: rgba(255,209,102,0.05);
+    border-radius: 0 8px 8px 0;
   }
-
-  .hero-quote-new, .hero-quote-ori {
-    transition: opacity var(--transition-speed) ease;
-  }
-  .hero-quote-ori { display: none; }
-  body.original-mode .hero-quote-new { display: none; }
-  body.original-mode .hero-quote-ori { display: block; }
 
   .scroll-hint {
     position: absolute; bottom: 2rem;
     left: 50%; transform: translateX(-50%);
     animation: bounce 2s infinite;
     color: var(--text-dim);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-align: center;
-    letter-spacing: 2px;
   }
   .scroll-hint span {
     display: block;
-    width: 20px; height: 20px;
+    width: 24px; height: 24px;
     margin: 8px auto 0;
-    border-right: 1.5px solid var(--text-dim);
-    border-bottom: 1.5px solid var(--text-dim);
+    border-right: 2px solid var(--text-dim);
+    border-bottom: 2px solid var(--text-dim);
     transform: rotate(45deg);
   }
 
-  /* ===== Section Common ===== */
   section {
     position: relative; z-index: 1;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
   .section-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
     position: relative;
-    display: inline-block;
   }
   .section-title::after {
     content: '';
     display: block;
-    width: 40px; height: 2px;
-    background: var(--gold);
+    width: 60px; height: 3px;
+    background: var(--primary);
     margin: 0.8rem auto 0;
-    transition: background var(--transition-speed) ease;
-  }
-  .section-sub {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    letter-spacing: 3px;
-    margin-top: 0.5rem;
-    transition: color var(--transition-speed) ease;
+    border-radius: 2px;
   }
 
-  /* ===== Profile Cards (Tabs) ===== */
-  .profile-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    margin-bottom: 2.5rem;
-  }
-  .profile-tab {
-    padding: 0.8rem 2.5rem;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text-dim);
-    cursor: pointer;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  .profile-tab:first-child { border-radius: 8px 0 0 8px; }
-  .profile-tab:last-child { border-radius: 0 8px 8px 0; }
-  .profile-tab.active {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-  }
-  .profile-tab:hover:not(.active) {
-    background: var(--card-hover);
-    color: var(--text);
-  }
-
-  .profile-panel {
-    display: none;
-    animation: fadeIn 0.5s ease;
-  }
-  .profile-panel.active { display: block; }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .profile-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem;
-    position: relative;
-    overflow: hidden;
-    transition: all var(--transition-speed) ease;
-  }
-
-  .profile-card-glow {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary), var(--gold), var(--primary), transparent);
-    background-size: 200% 100%;
-    animation: shimmer 3s linear infinite;
-  }
-  @keyframes shimmer {
-    to { background-position: -200% 0; }
-  }
-
-  .profile-card-border-glow {
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    pointer-events: none;
-    border: 1px solid transparent;
-    transition: border-color 0.3s;
-  }
-  .profile-card:hover .profile-card-border-glow {
-    border-color: rgba(139,26,43,0.3);
-  }
-  body.original-mode .profile-card:hover .profile-card-border-glow {
-    border-color: rgba(232,64,87,0.3);
-  }
-
-  .profile-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .profile-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
-  }
-  .profile-avatar.new-avatar {
-    border: 2px solid var(--new-primary);
-  }
-  .profile-avatar.ori-avatar {
-    border: 2px solid var(--ori-primary);
-  }
-  .profile-avatar::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    opacity: 0.3;
-    animation: pulse-ring 2s ease infinite;
-  }
-  @keyframes pulse-ring {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.05); opacity: 0.1; }
-  }
-
-  .profile-name-block h2 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-  }
-  .profile-name-block .real-name {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    letter-spacing: 1px;
-    transition: color var(--transition-speed) ease;
-  }
-  .profile-name-block .class-badge {
-    display: inline-block;
-    margin-top: 0.6rem;
-    padding: 3px 12px;
-    border: 1px solid var(--primary);
-    border-radius: 4px;
-    font-size: 0.7rem;
-    color: var(--primary);
-    letter-spacing: 2px;
-    transition: all var(--transition-speed) ease;
-  }
-
-  .profile-grid {
+  .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
 
-  .profile-field {
-    padding: 1rem 1.2rem;
-    background: rgba(255,255,255,0.02);
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-  .profile-field-label {
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    letter-spacing: 2px;
-    margin-bottom: 0.4rem;
-    text-transform: uppercase;
-    transition: color var(--transition-speed) ease;
-  }
-  .profile-field-value {
-    font-size: 0.95rem;
-    font-weight: 500;
-  }
-
-  .profile-desc {
-    padding: 1.5rem;
-    border-left: 2px solid var(--gold);
-    background: rgba(200,162,78,0.03);
-    border-radius: 0 8px 8px 0;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--text-dim);
-    transition: all var(--transition-speed) ease;
-  }
-
-  .profile-visual-mark {
-    margin-top: 1.5rem;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(200,162,78,0.04);
-    border: 1px solid rgba(200,162,78,0.1);
-    transition: all var(--transition-speed) ease;
-  }
-  .profile-visual-mark .mark-icon {
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    flex-shrink: 0;
-  }
-  .profile-visual-mark .mark-icon.new-mark {
-    background: rgba(139,26,43,0.2);
-    border: 1px solid var(--new-primary);
-    animation: markPulse 3s ease infinite;
-  }
-  .profile-visual-mark .mark-icon.ori-mark {
-    background: rgba(232,64,87,0.2);
-    border: 1px solid var(--ori-primary);
-  }
-  @keyframes markPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(139,26,43,0.3); }
-    50% { box-shadow: 0 0 12px 4px rgba(139,26,43,0.15); }
-  }
-
-  /* ===== Gallery ===== */
-  .gallery-filter {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .gallery-filter-btn {
-    padding: 0.5rem 1.5rem;
+  .info-card {
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text-dim);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-  }
-  .gallery-filter-btn.active,
-  .gallery-filter-btn:hover {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-  }
-
-  .gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-  @media (min-width: 768px) {
-    .gallery-masonry { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .gallery-item {
     border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--card);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-  }
-  .gallery-item:hover {
-    transform: scale(1.02);
-    border-color: var(--primary);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  }
-
-  .gallery-item-img {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .gallery-item-img img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  .gallery-item:hover .gallery-item-img img {
-    transform: scale(1.05);
-  }
-  .gallery-item-img .g-placeholder {
-    font-size: 3rem;
-    opacity: 0.2;
     padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .gallery-item-img.tall { min-height: 320px; }
-  .gallery-item-img.medium { min-height: 240px; }
-  .gallery-item-img.short { min-height: 180px; }
+  .info-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .info-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .info-card:hover::before { transform: scaleX(1); }
 
-  .gallery-item-img.new-art {
-    background: linear-gradient(135deg, #1a0a0e, #2a1018, #1a0808);
-  }
-  .gallery-item-img.ori-art {
-    background: linear-gradient(135deg, #1a0a14, #2a0e1e, #140a1a);
-  }
-
-  .gallery-item-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 50%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.2rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-  .gallery-item-overlay-text {
-    font-size: 0.8rem;
-    color: #fff;
-    letter-spacing: 1px;
+  .info-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
-  .gallery-item-info {
-    padding: 1rem 1.2rem;
+  .info-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--accent);
   }
-  .gallery-item-info h4 {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-  }
-  .gallery-item-info p {
-    font-size: 0.75rem;
+
+  .info-card p {
     color: var(--text-dim);
-    transition: color var(--transition-speed) ease;
+    font-size: 0.95rem;
   }
 
-  .gallery-item .form-tag {
-    position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-size: 0.65rem;
-    letter-spacing: 1px;
-    z-index: 2;
-  }
-  .form-tag.new-tag {
-    background: rgba(139,26,43,0.8);
-    color: #e8c0a0;
-  }
-  .form-tag.ori-tag {
-    background: rgba(232,64,87,0.8);
-    color: #ffe0e0;
-  }
-
-  /* ===== Fullscreen Lightbox ===== */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(0,0,0,0.92);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-out;
-    backdrop-filter: blur(8px);
-  }
-  .lightbox.open { display: flex; }
-  .lightbox-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 12px;
-    overflow: hidden;
+  .timeline {
     position: relative;
-  }
-  .lightbox-content .lb-img {
-    max-width: 85vw;
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .lightbox-content .lb-img img {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    display: block;
-  }
-  .lightbox-close {
-    position: fixed;
-    top: 1rem; right: 1rem;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 201;
-    transition: all 0.3s;
-  }
-  .lightbox-close:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.4);
-  }
-
-  /* ===== Story Section ===== */
-  .story-container {
-    max-width: 750px;
+    max-width: 700px;
     margin: 0 auto;
-    position: relative;
+    padding-left: 2rem;
   }
-
-  .story-container::before {
+  .timeline::before {
     content: '';
     position: absolute;
-    left: -2rem;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-    opacity: 0.3;
-    transition: background var(--transition-speed) ease;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
   }
 
-  .story-block {
-    margin-bottom: 3rem;
-    padding: 2rem 2.5rem;
-    background: var(--card);
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+  }
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem; top: 6px;
+    width: 12px; height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 2px solid var(--bg-dark);
+    transform: translateX(-5px);
+  }
+
+  .timeline-item h4 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-item p {
+    color: var(--text-dim);
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .gallery-card {
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    position: relative;
     overflow: hidden;
-    transition: all var(--transition-speed) ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
-  .story-block:hover {
-    border-color: var(--gold);
-    background: var(--card-hover);
+  .gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    border-color: var(--primary);
   }
 
-  .story-block::before {
+  .gallery-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-img::after {
     content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, var(--bg-card), transparent 40%);
+  }
+
+  .gallery-img .placeholder {
+    font-size: 4rem;
     opacity: 0.3;
   }
 
-  .story-deco {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 3rem;
-    opacity: 0.04;
-    font-family: 'Noto Serif SC', serif;
+  .gallery-info {
+    padding: 1rem 1.2rem;
   }
-
-  .story-tag {
-    display: inline-block;
-    padding: 2px 10px;
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    transition: all var(--transition-speed) ease;
+  .gallery-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
   }
-
-  .story-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text);
-    transition: color var(--transition-speed) ease;
-  }
-
-  .story-text {
-    font-size: 0.93rem;
-    line-height: 2;
+  .gallery-info p {
+    font-size: 0.8rem;
     color: var(--text-dim);
-    transition: color var(--transition-speed) ease;
   }
 
-  .story-text .highlight {
-    color: var(--gold);
-    font-weight: 500;
-    transition: color var(--transition-speed) ease;
-  }
-
-  .story-text .quote-inline {
-    border-left: 2px solid var(--primary);
-    padding-left: 1rem;
-    margin: 1rem 0;
-    font-style: italic;
-    opacity: 0.85;
-    transition: border-color var(--transition-speed) ease;
-  }
-
-  /* ===== Voice Player ===== */
-  .voice-player-wrap {
+  .voice-container {
     max-width: 700px;
     margin: 0 auto;
   }
 
-  .voice-player-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .voice-ring {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: border-color var(--transition-speed) ease;
-  }
-  .voice-ring::after {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    opacity: 0.2;
-    animation: voiceRingPulse 2s ease infinite;
-  }
-  @keyframes voiceRingPulse {
-    0%, 100% { transform: scale(1); opacity: 0.2; }
-    50% { transform: scale(1.08); opacity: 0; }
-  }
-  .voice-ring-icon {
-    font-size: 1.5rem;
-    color: var(--gold);
-    transition: color var(--transition-speed) ease;
-  }
-
-  .voice-ring.spinning {
-    animation: spin 3s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .voice-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
   .voice-item {
-    background: var(--card);
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    transition: all 0.3s ease, background var(--transition-speed) ease, border-color var(--transition-speed) ease;
-    cursor: pointer;
+    transition: all 0.3s ease;
   }
   .voice-item:hover {
     border-color: var(--primary);
-    background: var(--card-hover);
-  }
-  .voice-item.playing {
-    border-color: var(--gold);
-    box-shadow: 0 0 20px rgba(200,162,78,0.1);
+    background: var(--bg-card-hover);
   }
 
-  .voice-play-btn {
+  .voice-icon {
     width: 36px; height: 36px;
+    background: rgba(232,64,87,0.12);
     border-radius: 50%;
-    background: rgba(200,162,78,0.1);
-    border: 1px solid var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 0.75rem;
-    color: var(--gold);
-    transition: all var(--transition-speed) ease;
-  }
-  .voice-item:hover .voice-play-btn {
-    background: rgba(200,162,78,0.2);
+    font-size: 0.9rem;
   }
 
-  .voice-text {
-    flex: 1;
-  }
-  .voice-text .voice-scene {
-    font-size: 0.7rem;
+  .voice-text h4 {
+    font-size: 0.85rem;
     color: var(--text-dim);
-    letter-spacing: 2px;
     margin-bottom: 0.3rem;
-    transition: color var(--transition-speed) ease;
   }
-  .voice-text .voice-line {
-    font-size: 0.93rem;
-    line-height: 1.7;
-    color: var(--text);
-    transition: color var(--transition-speed) ease;
+  .voice-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
-  .voice-progress {
-    height: 2px;
-    background: var(--border);
-    border-radius: 1px;
-    margin-top: 0.8rem;
-    overflow: hidden;
-    transition: background var(--transition-speed) ease;
-  }
-  .voice-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--gold);
-    border-radius: 1px;
-    transition: width 0.1s linear, background var(--transition-speed) ease;
-  }
-
-  /* ===== Footer ===== */
   footer {
     position: relative; z-index: 1;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     color: var(--text-dim);
-    font-size: 0.75rem;
-    border-top: 1px solid var(--border);
-    transition: all var(--transition-speed) ease;
-  }
-
-  .footer-deco {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .footer-deco-line {
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.3;
-    transition: background var(--transition-speed) ease;
-  }
-  .footer-deco-icon {
-    color: var(--gold);
     font-size: 0.8rem;
-    transition: color var(--transition-speed) ease;
+    border-top: 1px solid var(--border);
   }
+  footer a { color: var(--primary); text-decoration: none; }
 
-  footer .copyright {
-    margin-top: 1rem;
-    line-height: 1.8;
-  }
-  footer a { color: var(--primary); text-decoration: none; transition: color var(--transition-speed) ease; }
-  footer .designer {
-    margin-top: 1.5rem;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    opacity: 0.5;
-  }
-
-  /* ===== Animations ===== */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1120,33 +356,23 @@
   }
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
+    40% { transform: translateX(-50%) translateY(-12px); }
+    60% { transform: translateX(-50%) translateY(-6px); }
   }
 
   .fade-in {
     opacity: 0;
-    transform: translateY(25px);
-    transition: all 0.7s ease;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
   }
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* ===== Responsive ===== */
-  @media (max-width: 768px) {
-    section { padding: 4rem 1.2rem; }
-    .form-toggle-wrap { right: 0.8rem; }
-    .form-toggle { width: 36px; height: 64px; }
-    .form-toggle-knob { width: 28px; height: 28px; }
-    body.original-mode .form-toggle-knob { top: 32px; }
-    .hero-art-frame { width: 220px; height: 300px; }
-    .profile-header { flex-direction: column; align-items: center; text-align: center; }
-    .profile-grid { grid-template-columns: 1fr; }
-    .gallery-masonry { grid-template-columns: 1fr; }
-    .profile-card { padding: 2rem 1.5rem; }
-    nav .nav-links { display: none; }
+  @media (max-width: 640px) {
+    section { padding: 3rem 1.2rem; }
+    .hero-quote { padding: 1rem 1.2rem; font-size: 0.95rem; }
   }
 </style>
 </head>
@@ -1154,441 +380,199 @@
 
 <canvas id="particles"></canvas>
 
-<!-- Navigation -->
-<nav>
-  <div class="logo">EXUSIAI</div>
-  <ul class="nav-links">
-    <li><a href="#profile">档案</a></li>
-    <li><a href="#gallery">画廊</a></li>
-    <li><a href="#story">故事</a></li>
-    <li><a href="#voice">语音</a></li>
-  </ul>
-</nav>
-
-<!-- Form Toggle -->
-<div class="form-toggle-wrap">
-  <span class="form-toggle-label">形态</span>
-  <div class="form-toggle" id="formToggle" title="切换形态">
-    <div class="form-toggle-knob"></div>
-  </div>
-  <span class="form-toggle-label" style="font-size:0.6rem;">切换</span>
-</div>
-
-<!-- Hero Section -->
 <div class="hero">
-  <div class="hero-bg-new"></div>
-  <div class="hero-bg-ori"></div>
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-badge">ARKNIGHTS · 明日方舟</div>
-
-    <div class="hero-art-frame">
-      <div class="hero-art-glow"></div>
-      <div class="hero-art-new">
-        <div class="hero-art-placeholder">
-          <img src="立绘_新约能天使_1.png" alt="新约能天使 精英一">
-        </div>
-      </div>
-      <div class="hero-art-ori">
-        <div class="hero-art-placeholder">
-          <img src="立绘_能天使_2.png" alt="能天使 精英二">
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-title-new">
-      <h1 class="hero-name">新约能天使</h1>
-      <p class="hero-sub">Exusiai · 怪杰</p>
-      <div class="hero-class">特种 / CETUS</div>
-    </div>
-    <div class="hero-title-ori">
-      <h1 class="hero-name">能天使</h1>
-      <p class="hero-sub">Exusiai · 速射手</p>
-      <div class="hero-class">狙击 / MARKSMAN</div>
-    </div>
-
+    <div class="hero-badge">ARKNIGHTS / 明日方舟</div>
+    <h1 class="hero-name">能天使</h1>
+    <p class="hero-sub">Exusiai · 六星速射手</p>
     <div class="hero-quote">
-      <div class="hero-quote-new">"新约能天使，使命必达。用新的方式，践行拉特兰的信念。"</div>
-      <div class="hero-quote-ori">"企鹅物流，使命必达！不管什么包裹，只要交给我就对了！"</div>
+      "企鹅物流，使命必达！不管什么包裹，只要交给我就对了！"
     </div>
   </div>
-
+  <div class="scroll-hint">
+    向下滚动
+    <span></span>
+  </div>
 </div>
 
-<!-- Profile Section -->
-<section id="profile">
-  <div class="section-header fade-in">
-    <h2 class="section-title">角色档案</h2>
-    <p class="section-sub">CHARACTER FILE</p>
-  </div>
-
-  <div class="profile-tabs fade-in">
-    <div class="profile-tab active" data-tab="new">新约能天使</div>
-    <div class="profile-tab" data-tab="ori">能天使</div>
-  </div>
-
-  <!-- New Covenant Exusiai -->
-  <div class="profile-panel active" id="panel-new">
-    <div class="profile-card">
-      <div class="profile-card-glow"></div>
-      <div class="profile-card-border-glow"></div>
-
-      <div class="profile-header">
-        <div class="profile-avatar new-avatar"><img src="立绘_新约能天使_1.png" alt="新约能天使"></div>
-        <div class="profile-name-block">
-          <h2>新约能天使</h2>
-          <div class="real-name">本名：蕾缪乐 &nbsp;|&nbsp; Lemuel</div>
-          <div class="class-badge">特种 · 怪杰</div>
-        </div>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-field">
-          <div class="profile-field-label">代号</div>
-          <div class="profile-field-value">新约能天使</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">种族</div>
-          <div class="profile-field-value">萨科塔</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">出身</div>
-          <div class="profile-field-value">拉特兰</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">阵营</div>
-          <div class="profile-field-value">苹果派物流</div>
-        </div>
-      </div>
-
-      <div class="profile-desc">
-        苹果派物流的创立者。曾是企鹅物流的核心成员，在经历了一系列变故后，选择以全新的身份踏上旅途。她用新的方式践行拉特兰的信念——即使生命在不断流逝，也要将使命贯彻到底。那份开朗与热情未曾改变，只是多了一份沉稳与决意。
-      </div>
+<section>
+  <h2 class="section-title fade-in">干员档案</h2>
+  <div class="info-grid">
+    <div class="info-card fade-in">
+      <div class="icon">🎯</div>
+      <h3>职业定位</h3>
+      <p>狙击 / 速射手（Marksman）。高攻速、低伤害单体物理输出，擅长处理空中目标，是前期最可靠的对空火力之一。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">⭐</div>
+      <h3>稀有度</h3>
+      <p>★★★★★★（六星）。作为开服就存在的六星干员，能天使至今仍是速射手天花板，拥有极高的人气与实战价值。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">🏛️</div>
+      <h3>阵营</h3>
+      <p>企鹅物流（Penguin Logistics）。拉特兰出身的信使，与德克萨斯、可颂、空等人组成了一支欢乐又可靠的快递团队。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">📍</div>
+      <h3>出身地</h3>
+      <p>拉特兰（Laterano）。泰拉大陆上的教皇国，以铳械技术和信仰体系闻名。能天使是拉特兰的黎博利族。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">⚔️</div>
+      <h3>战斗风格</h3>
+      <p>双持冲锋枪，以极高的射速倾泻弹幕。技能开启后可同时攻击多个目标，是"过载"式输出的代名词。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">💖</div>
+      <h3>性格特点</h3>
+      <p>开朗活泼、热情洋溢，是个十足的乐天派。热爱苹果派，经常在任务中哼着歌，给周围的人带来活力。</p>
     </div>
   </div>
+</section>
 
-  <!-- Original Exusiai -->
-  <div class="profile-panel" id="panel-ori">
-    <div class="profile-card">
-      <div class="profile-card-glow"></div>
-      <div class="profile-card-border-glow"></div>
+<section>
+  <h2 class="section-title fade-in">天赋</h2>
+  <div class="info-grid">
+    <div class="info-card fade-in">
+      <div class="icon">✨</div>
+      <h3>天使的祝福</h3>
+      <p>部署后随机获得一种增益效果：攻击力提升、攻速提升、或技力自然回复速度提升。为战斗增添一份随机性与惊喜。</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="icon">🍎</div>
+      <h3>企鹅物流的祝福</h3>
+      <p>精英2后解锁。场上存在其他企鹅物流成员时，自身攻击力进一步提升。与德克萨斯、可颂等队友搭配时效果显著。</p>
+    </div>
+  </div>
+</section>
 
-      <div class="profile-header">
-        <div class="profile-avatar ori-avatar"><img src="立绘_能天使_1.png" alt="能天使"></div>
-        <div class="profile-name-block">
-          <h2>能天使</h2>
-          <div class="real-name">本名：蕾缪乐 &nbsp;|&nbsp; Lemuel</div>
-          <div class="class-badge">狙击 · 速射手</div>
-        </div>
+<section>
+  <h2 class="section-title fade-in">干员经历</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>拉特兰的修女</h4>
+      <p>能天使原名 Lemuen，是拉特兰的一名修女。在拉特兰的信仰体系中成长，习得了精湛的铳械使用技术。</p>
+    </div>
+    <div class="timeline-item">
+      <h4>离开拉特兰</h4>
+      <p>因某些原因离开拉特兰，踏上了前往泰拉大陆各地的旅途。途中结识了德克萨斯等志同道合的伙伴。</p>
+    </div>
+    <div class="timeline-item">
+      <h4>加入企鹅物流</h4>
+      <p>与德克萨斯、可颂、空等人共同创立或加入了企鹅物流。这支独特的快递团队在各地执行任务，逐渐声名鹊起。</p>
+    </div>
+    <div class="timeline-item">
+      <h4>接触罗德岛</h4>
+      <p>因企鹅物流与罗德岛的业务往来，能天使与罗德岛建立了合作关系。后作为干员加入罗德岛，参与对感染者的救助行动。</p>
+    </div>
+    <div class="timeline-item">
+      <h4>持续活跃</h4>
+      <p>在罗德岛期间，能天使依旧保持着乐观积极的态度，同时继续为企鹅物流执行信使任务。她的存在为罗德岛带来了许多欢笑。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title fade-in">语音台词</h2>
+  <div class="voice-container">
+    <div class="voice-item fade-in">
+      <div class="voice-icon">💬</div>
+      <div class="voice-text">
+        <h4>任命助理</h4>
+        <p>"博士！今天的苹果派我带来了！工作之前先吃点东西嘛~"</p>
       </div>
-
-      <div class="profile-grid">
-        <div class="profile-field">
-          <div class="profile-field-label">代号</div>
-          <div class="profile-field-value">能天使</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">种族</div>
-          <div class="profile-field-value">萨科塔</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">出身</div>
-          <div class="profile-field-value">拉特兰</div>
-        </div>
-        <div class="profile-field">
-          <div class="profile-field-label">阵营</div>
-          <div class="profile-field-value">企鹅物流</div>
-        </div>
+    </div>
+    <div class="voice-item fade-in">
+      <div class="voice-icon">🗣️</div>
+      <div class="voice-text">
+        <h4>交谈1</h4>
+        <p>"企鹅物流可是无所不能的哦！不管是送信还是战斗，交给我们就对了！"</p>
       </div>
-
-      <div class="profile-desc">
-        企鹅物流的活力担当，战场上的极速射手。开朗活泼、热情洋溢，是个十足的乐天派。热爱苹果派，经常在任务中哼着歌，给周围的人带来活力。双持冲锋枪，以极高的射速倾泻弹幕，是"过载"式输出的代名词。
+    </div>
+    <div class="voice-item fade-in">
+      <div class="voice-icon">⚡</div>
+      <div class="voice-text">
+        <h4>晋升2</h4>
+        <p>"虽然我平时嘻嘻哈哈的，但在关键时刻，我可是很可靠的哦。这一点，博士你应该最清楚吧？"</p>
+      </div>
+    </div>
+    <div class="voice-item fade-in">
+      <div class="voice-icon">🎵</div>
+      <div class="voice-text">
+        <h4>闲置</h4>
+        <p>"~♪ 苹果派~苹果派~世界上最好吃的就是苹果派~♪"</p>
+      </div>
+    </div>
+    <div class="voice-item fade-in">
+      <div class="voice-icon">🔥</div>
+      <div class="voice-text">
+        <h4>作战开始</h4>
+        <p>"全弹发射准备——目标锁定！让他们见识一下拉特兰的铳技！"</p>
+      </div>
+    </div>
+    <div class="voice-item fade-in">
+      <div class="voice-icon">🌟</div>
+      <div class="voice-text">
+        <h4>信赖触摸</h4>
+        <p>"嘿嘿，博士你找我有什么事吗？不管什么事，我都会全力以赴的！"</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Gallery Section -->
-<section id="gallery">
-  <div class="section-header fade-in">
-    <h2 class="section-title">形态画廊</h2>
-    <p class="section-sub">FORM GALLERY</p>
-  </div>
-
-  <div class="gallery-filter fade-in">
-    <button class="gallery-filter-btn active" data-filter="all">全部</button>
-    <button class="gallery-filter-btn" data-filter="new">新约能天使</button>
-    <button class="gallery-filter-btn" data-filter="ori">能天使</button>
-  </div>
-
-  <div class="gallery-masonry" id="galleryGrid">
-    <div class="gallery-item fade-in" data-form="new" data-title="新约能天使 · 精英二" data-src="立绘_新约能天使_2.png">
-      <span class="form-tag new-tag">新约</span>
-      <div class="gallery-item-img new-art">
-        <img src="立绘_新约能天使_2.png" alt="新约能天使 精英二" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
+<section>
+  <h2 class="section-title fade-in">时装展示</h2>
+  <div class="gallery-grid">
+    <div class="gallery-card fade-in">
+      <div class="gallery-img">
+        <div class="placeholder">👗</div>
       </div>
-      <div class="gallery-item-info">
-        <h4>新约能天使 · 精英二</h4>
-        <p>精英二立绘 · 暗红与金色交织</p>
+      <div class="gallery-info">
+        <h4>默认时装</h4>
+        <p>经典的企鹅物流制服，活力十足</p>
       </div>
     </div>
-
-    <div class="gallery-item fade-in" data-form="ori" data-title="能天使 · 初始" data-src="立绘_能天使_1.png">
-      <span class="form-tag ori-tag">原版</span>
-      <div class="gallery-item-img ori-art">
-        <img src="立绘_能天使_1.png" alt="能天使 初始" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
+    <div class="gallery-card fade-in">
+      <div class="gallery-img">
+        <div class="placeholder">🎄</div>
       </div>
-      <div class="gallery-item-info">
-        <h4>能天使 · 初始</h4>
-        <p>初始立绘 · 经典企鹅物流制服</p>
+      <div class="gallery-info">
+        <h4>静谧午夜</h4>
+        <p>EPOQUE系列 - 圣诞主题时装</p>
       </div>
     </div>
-
-    <div class="gallery-item fade-in" data-form="new" data-title="新约能天使 · 精英一" data-src="立绘_新约能天使_1.png">
-      <span class="form-tag new-tag">新约</span>
-      <div class="gallery-item-img new-art">
-        <img src="立绘_新约能天使_1.png" alt="新约能天使 精英一" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
+    <div class="gallery-card fade-in">
+      <div class="gallery-img">
+        <div class="placeholder">🌸</div>
       </div>
-      <div class="gallery-item-info">
-        <h4>新约能天使 · 精英一</h4>
-        <p>精英一立绘 · 苹果派物流制服</p>
+      <div class="gallery-info">
+        <h4>缤纷之夏</h4>
+        <p>夏日泳装系列，清凉一夏</p>
       </div>
     </div>
-
-    <div class="gallery-item fade-in" data-form="ori" data-title="能天使 · 精英二" data-src="立绘_能天使_2.png">
-      <span class="form-tag ori-tag">原版</span>
-      <div class="gallery-item-img ori-art">
-        <img src="立绘_能天使_2.png" alt="能天使 精英二" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
+    <div class="gallery-card fade-in">
+      <div class="gallery-img">
+        <div class="placeholder">✨</div>
       </div>
-      <div class="gallery-item-info">
-        <h4>能天使 · 精英二</h4>
-        <p>精英二立绘 · 全火力姿态</p>
-      </div>
-    </div>
-
-    <div class="gallery-item fade-in" data-form="ori" data-title="能天使 · 皮肤1" data-src="立绘_能天使_skin1.png">
-      <span class="form-tag ori-tag">原版</span>
-      <div class="gallery-item-img ori-art">
-        <img src="立绘_能天使_skin1.png" alt="能天使 皮肤1" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
-      </div>
-      <div class="gallery-item-info">
-        <h4>能天使 · 时装 1</h4>
-        <p>皮肤立绘</p>
-      </div>
-    </div>
-
-    <div class="gallery-item fade-in" data-form="ori" data-title="能天使 · 皮肤2" data-src="立绘_能天使_skin2.png">
-      <span class="form-tag ori-tag">原版</span>
-      <div class="gallery-item-img ori-art">
-        <img src="立绘_能天使_skin2.png" alt="能天使 皮肤2" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
-      </div>
-      <div class="gallery-item-info">
-        <h4>能天使 · 时装 2</h4>
-        <p>皮肤立绘</p>
-      </div>
-    </div>
-
-    <div class="gallery-item fade-in" data-form="ori" data-title="能天使 · 皮肤3" data-src="立绘_能天使_skin3.png">
-      <span class="form-tag ori-tag">原版</span>
-      <div class="gallery-item-img ori-art">
-        <img src="立绘_能天使_skin3.png" alt="能天使 皮肤3" loading="lazy">
-        <div class="gallery-item-overlay"><div class="gallery-item-overlay-text">点击全屏预览</div></div>
-      </div>
-      <div class="gallery-item-info">
-        <h4>能天使 · 时装 3</h4>
-        <p>皮肤立绘</p>
+      <div class="gallery-info">
+        <h4>意志</h4>
+        <p>0011系列 - 东国风格时装</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Story Section -->
-<section id="story">
-  <div class="section-header fade-in">
-    <h2 class="section-title">故事碎片</h2>
-    <p class="section-sub">FRAGMENTS</p>
-  </div>
-
-  <div class="story-container">
-    <div class="story-block fade-in">
-      <div class="story-deco">&#9670;</div>
-      <div class="story-tag">档案摘录</div>
-      <div class="story-title">苹果派物流的诞生</div>
-      <div class="story-text">
-        <p>离开企鹅物流后，蕾缪乐并没有停下脚步。</p>
-        <p style="margin-top:0.8rem;">她创立了<span class="highlight">苹果派物流</span>，用一种全新的方式继续践行拉特兰的信念。这不仅仅是一家物流公司，更是她对"使命"二字的重新诠释。</p>
-        <div class="quote-inline">"使命不会因为形式的改变而消失。只要还有人在等待，送达的意义就不会改变。"</div>
-        <p>新的名字，新的制服，新的伙伴——但那份对苹果派的热爱和对工作的热情，一如既往。</p>
-      </div>
-    </div>
-
-    <div class="story-block fade-in">
-      <div class="story-deco">&#9670;</div>
-      <div class="story-tag">同行评价</div>
-      <div class="story-title">来自旧友的话</div>
-      <div class="story-text">
-        <div class="quote-inline">"她变了，又好像没变。笑容还是那个笑容，但眼神里多了一些东西……我不会说那是沉重，应该说是'决心'吧。"<span class="highlight">——德克萨斯</span></div>
-        <div class="quote-inline">"蕾缪乐一直都是这样的人。一旦决定了什么，就一定会做到。不管付出什么代价。"<span class="highlight">——莫斯提马</span></div>
-        <p style="margin-top:0.8rem;">生命在不断流失，但使命必须送达。这是新约能天使的信条，也是她选择这条路的代价。</p>
-      </div>
-    </div>
-
-    <div class="story-block fade-in">
-      <div class="story-deco">&#9670;</div>
-      <div class="story-tag">机密档案</div>
-      <div class="story-title">关于"新约"</div>
-      <div class="story-text">
-        <p>拉特兰的信使们有着自己的传统与信仰。"新约"这个称号，并非自封，而是某种意义上的——</p>
-        <div class="quote-inline"><span class="highlight">"旧的契约已经完成，新的使命已经开始。我不是在告别过去，而是在为未来铺路。"</span></div>
-        <p>从企鹅物流到苹果派物流，从速射手到怪杰，从能天使到新约能天使。每一次转变都伴随着失去，但也伴随着新的可能。</p>
-        <p style="margin-top:0.8rem;">她依然热爱苹果派。这一点，永远不会变。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Voice Section -->
-<section id="voice">
-  <div class="section-header fade-in">
-    <h2 class="section-title">语音彩蛋</h2>
-    <p class="section-sub">VOICE LINES</p>
-  </div>
-
-  <div class="voice-player-wrap">
-    <div class="voice-player-header fade-in">
-      <div class="voice-ring" id="voiceRing">
-        <div class="voice-ring-icon">&#9835;</div>
-      </div>
-    </div>
-
-    <div class="voice-list">
-      <div class="voice-item fade-in" data-src="任命助理.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">任命助理</div>
-          <div class="voice-line">"老板，快递放你门口了，记得有空从文件堆里抬个头扫码签收哦！哎，奇怪......明明你分配出去那么多的差事，怎么自己却越来越忙了？"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="交谈1.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">交谈1</div>
-          <div class="voice-line">"啊——啊嚏！嗯？唉，刚刚打个喷嚏老姐都要发条短讯问一下。不要啊，共感太强也有不方便啊！老姐，你最近简直就像住在我的脑子里一样，亲密过头可是会失去私密空间的！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="交谈2.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">交谈2</div>
-          <div class="voice-line">"不和大家一起会不会难过？老板，多虑了哦，换个角度想，大家四散在各地的话，那岂不是我每到一个地方，都能遇到我的朋友，这就是跑物流的动力！办派对的契机！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="信赖提升后交谈2.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">信赖提升后交谈</div>
-          <div class="voice-line">"经历这么多，那顶光环居然又重新亮起来了，我们的律法和信仰难道跟它一点关系都没有吗？搞不懂，反正现在谁都离不了它。这条小路上一盏路灯都没有，没有它，我们就要撞电线杆啦。"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="信赖触摸.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">信赖触摸</div>
-          <div class="voice-line">"一天一苹果，一周七苹果！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="闲置.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">闲置</div>
-          <div class="voice-line">"主啊，希望你能让老板做个长长的美梦，希望那个美梦......终有一日能成真。"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="干员报到.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">干员报到</div>
-          <div class="voice-line">"老板，好久不见，风采依旧啊！在拉特兰如果有需要运送货物的活计要第一时间想到我！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="行动开始.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">行动开始</div>
-          <div class="voice-line">"想吃子弹，就给我一个一个排好队——！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="作战中1.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">作战中</div>
-          <div class="voice-line">"正宗天意！""福音摇滚！""弹幕嗨破天！""叉烧苹果派！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-
-      <div class="voice-item fade-in" data-src="生日.wav">
-        <div class="voice-play-btn">&#9654;</div>
-        <div class="voice-text">
-          <div class="voice-scene">生日</div>
-          <div class="voice-line">"呼......开了大半个月的车，终、终于赶上你的生日派对了。还好还好，哈，我能在十二点前把蛋糕糊在你的脸上！别想躲，老板！定做蛋糕我花了不少钱，可不能白白浪费！"</div>
-          <div class="voice-progress"><div class="voice-progress-bar"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
 <footer>
-  <div class="footer-deco">
-    <div class="footer-deco-line"></div>
-    <div class="footer-deco-icon">&#9670;</div>
-    <div class="footer-deco-line"></div>
-  </div>
-  <div class="copyright">
-    <p>明日方舟（Arknights）&copy; 鹰角网络 / Hypergryph &nbsp;|&nbsp; 素材来源 <a href="https://prts.wiki" target="_blank">PRTS Wiki</a></p>
-    <p>本页面仅供个人学习交流使用，不涉及任何商业用途</p>
-    <p>所有游戏内容版权归鹰角网络所有</p>
-  </div>
-  <div class="designer">DESIGNED BY YUUKA &middot; 2026</div>
+  <p>明日方舟干员介绍 · 能天使（Exusiai） · 非官方粉丝作品</p>
+  <p style="margin-top: 0.5rem;">Arknights &copy; Hypergryph / Studio Montagne</p>
 </footer>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">&times;</button>
-  <div class="lightbox-content">
-    <div class="lb-img" id="lightboxImg"></div>
-  </div>
-</div>
-
 <script>
-  // ===== Particles =====
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let particles = [];
-  let currentMode = 'new';
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -1604,16 +588,9 @@
       this.y = Math.random() * canvas.height;
       this.size = Math.random() * 2 + 0.5;
       this.speedY = -(Math.random() * 0.3 + 0.1);
-      this.speedX = (Math.random() - 0.5) * 0.15;
-      this.opacity = Math.random() * 0.35 + 0.05;
-      this.setColor();
-    }
-    setColor() {
-      if (currentMode === 'new') {
-        this.color = Math.random() > 0.5 ? '#8b1a2b' : '#c8a24e';
-      } else {
-        this.color = Math.random() > 0.5 ? '#e84057' : '#ffd166';
-      }
+      this.speedX = (Math.random() - 0.5) * 0.2;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      this.color = Math.random() > 0.5 ? '#e84057' : '#ffd166';
     }
     update() {
       this.y += this.speedY;
@@ -1630,7 +607,7 @@
     }
   }
 
-  for (let i = 0; i < 70; i++) particles.push(new Particle());
+  for (let i = 0; i < 60; i++) particles.push(new Particle());
 
   function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1639,171 +616,15 @@
   }
   animateParticles();
 
-  // ===== Form Toggle =====
-  const formToggle = document.getElementById('formToggle');
-  let isOriginal = false;
-
-  formToggle.addEventListener('click', () => {
-    isOriginal = !isOriginal;
-    document.body.classList.toggle('original-mode', isOriginal);
-    currentMode = isOriginal ? 'ori' : 'new';
-    particles.forEach(p => p.setColor());
-  });
-
-  // ===== Profile Tabs =====
-  document.querySelectorAll('.profile-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.profile-panel').forEach(p => p.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
-    });
-  });
-
-  // ===== Gallery Shuffle =====
-  const galleryGrid = document.getElementById('galleryGrid');
-  const items = Array.from(galleryGrid.children);
-  for (let i = items.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    galleryGrid.appendChild(items[j]);
-    items.splice(j, 1);
-  }
-
-  // ===== Gallery Filter =====
-  document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.gallery-item').forEach(item => {
-        if (filter === 'all' || item.dataset.form === filter) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // ===== Lightbox =====
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const src = item.dataset.src || '';
-      const title = item.dataset.title || '';
-      if (src) {
-        lightboxImg.innerHTML = '<img src="' + src + '" alt="' + title + '">';
-      } else {
-        lightboxImg.innerHTML = '<div style="text-align:center;opacity:0.3;"><div style="font-size:4rem;">&#9670;</div></div>';
-      }
-      lightbox.classList.add('open');
-    });
-  });
-
-  lightboxClose.addEventListener('click', (e) => {
-    e.stopPropagation();
-    lightbox.classList.remove('open');
-  });
-  lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('open');
-  });
-
-  // ===== Voice Player =====
-  const voiceRing = document.getElementById('voiceRing');
-  let currentAudio = null;
-  let currentItem = null;
-  let progressInterval = null;
-
-  function stopVoice() {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
-    }
-    if (progressInterval) {
-      clearInterval(progressInterval);
-      progressInterval = null;
-    }
-    if (currentItem) {
-      currentItem.classList.remove('playing');
-      currentItem.querySelector('.voice-progress-bar').style.width = '0%';
-      currentItem = null;
-    }
-    voiceRing.classList.remove('spinning');
-  }
-
-  document.querySelectorAll('.voice-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const src = item.dataset.src;
-      if (!src) return;
-
-      if (currentItem === item) {
-        stopVoice();
-        return;
-      }
-
-      stopVoice();
-
-      const audio = new Audio(src);
-      currentAudio = audio;
-      currentItem = item;
-      const bar = item.querySelector('.voice-progress-bar');
-
-      item.classList.add('playing');
-      voiceRing.classList.add('spinning');
-
-      audio.play().catch(() => {
-        stopVoice();
-      });
-
-      progressInterval = setInterval(() => {
-        if (audio.duration) {
-          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
-        }
-      }, 100);
-
-      audio.addEventListener('ended', () => {
-        stopVoice();
-      });
-    });
-  });
-
-  // ===== 戳一下 =====
-  function playPoke() {
-    const a = new Audio('戳一下.wav');
-    a.volume = 0.8;
-    a.play().catch(() => {});
-  }
-  // 进入播放一次
-  playPoke();
-  // 点击播放一次
-  document.addEventListener('click', () => {
-    playPoke();
-  });
-
-  // ===== Scroll Animations =====
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.15 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // ===== Smooth Scroll =====
-  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
 </script>
 
 </body>
