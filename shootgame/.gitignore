@@ -1,0 +1,26 @@
+# Build outputs
+*.exe
+*.obj
+*.o
+
+# SFML DLLs (download separately)
+*.dll
+
+# Extracted frames (generated from videos)
+frames/
+frames_sampled/
+
+# Audio files (large)
+audio/
+
+# Videos (large source files)
+videos/
+
+# Score data
+scores.dat
+
+# SFML library (download separately)
+lib/
+
+# VS Code
+.vscode/
